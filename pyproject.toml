@@ -6,5 +6,4 @@ dependencies = [
     "streamlit>=1.30",
     "pandas>=2.0",
     "requests>=2.31",
-    "plotly>=5.0",     # if used
 ]
