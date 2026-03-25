@@ -3,6 +3,8 @@ import requests
 from requests.exceptions import HTTPError
 import pandas as pd
 
+# Used to simplify getting the url for coingecko urls
+
 def get_weburl(sub):
     return f"https://api.coingecko.com/api/v3/{sub}"
 
@@ -10,6 +12,8 @@ def get_weburl(sub):
 def fetch_data(api_url):
     response = requests.get(api_url)
     return response.json(), response
+
+# Returns the id associated with the coin symbol
 
 def fetch_coin_id_from_symbol(sym):
     nid = None
@@ -25,6 +29,9 @@ def fetch_coin_id_from_symbol(sym):
                 break
     finally:
         return nid
+    
+# ==================
+# The chart at the top of the app
 
 st.header("Top 10 markets on CoinGecko")
 
@@ -38,6 +45,9 @@ except HTTPError as e:
 else:
     df = pd.DataFrame(data)
     st.dataframe(df)
+
+# ==================
+# Inputbox to preview price data for a specific coin
 
 specific_coin = st.text_input("Look for the price history of a specific coin? (enter symbol i.e \"btc\")")
 
@@ -75,3 +85,4 @@ if specific_coin != "":
                 for c in st.columns(len(mk_d)):
                     c.metric(mk_d[i][0], mk_d[i][1])
                     i += 1
+
