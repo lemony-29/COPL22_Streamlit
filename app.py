@@ -72,6 +72,6 @@ if specific_coin != "":
                 ]
 
                 i = 0
-                for c in st.columns(6):
+                for c in st.columns(len(mk_d)):
                     c.metric(mk_d[i][0], mk_d[i][1])
                     i += 1
