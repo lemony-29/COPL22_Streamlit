@@ -1,7 +1,8 @@
 [project]
-name = "pa4-dashboard"
+name = "streamlit-app"
 version = "0.1.0"
 requires-python = ">=3.10"
+package-mode = false
 dependencies = [
     "streamlit>=1.30",
     "pandas>=2.0",
